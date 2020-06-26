@@ -2,9 +2,11 @@ apiVersion: v2
 name: chirpstack
 version: 0.1.0
 appVersion: 3.9.0
-description: ChirpStack, open-source LoRaWAN® Network Server stack for Kubernetes
+description: The ChirpStack open-source LoRaWAN Network Server stack provides open-source components for LoRaWAN networks. Together they form a ready-to-use solution including an user-friendly web-interface for device management and APIs for integration. The modular architecture makes it possible to integrate within existing infrastructures. All components are licensed under the MIT license and can be used for commercial purposes.
 icon: file://../logo.png
 type: application
 keywords:
   - LoRaWAN
 home: https://www.chirpstack.io
+sources:
+  - https://github.com/dbrosy/rancher-charts
