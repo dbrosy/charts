@@ -2,6 +2,9 @@ apiVersion: v2
 name: chirpstack
 version: 0.1.0
 appVersion: 3.9.0
-description: Chirpstack LoRaWAN Application server for Kubernetes
+description: ChirpStack, open-source LoRaWAN® Network Server stack for Kubernetes
 icon: file://../logo.png
 type: application
+keywords:
+  - LoRaWAN
+home: https://www.chirpstack.io
