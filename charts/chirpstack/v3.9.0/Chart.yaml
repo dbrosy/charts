@@ -5,17 +5,3 @@ appVersion: 3.9.0
 description: Chirpstack LoRaWAN Application server for Kubernetes
 icon: file://../logo.png
 type: application
-keywords:
-    - chirpstack
-    - lora
-    - lorawan
-    - http
-    - web
-    - application
-home: https://www.chirpstack.io/
-sources:
-    - https://github.com/dbrosy/rancher-charts
-    maintainers:
-    - name: dbrosy
-      email: containers@brosy.com
-    engine: gotpl
