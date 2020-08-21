@@ -9,7 +9,7 @@ keywords:
 home: https://github.com/dbrosy/rancher-charts/
 icon: https://raw.githubusercontent.com/dbrosy/rancher-charts/master/charts/custom-template/template-187x234.png
 sources:
-  - https://github.com/dbrosy/rancher-charts/charts/demo
+  - https://github.com/dbrosy/rancher-charts/charts/custom-template
 maintainers:
   - name: dbrosy
     email: dbrosy@hotmail.com
