@@ -6,7 +6,7 @@ version: 0.0.1
 keywords:
   - demo
 home: https://github.com/dbrosy/rancher-charts/
-icon: https://github.com/dbrosy/rancher-charts/blob/master/charts/demo/demo-220x234.png
+icon: https://raw.githubusercontent.com/dbrosy/rancher-charts/master/charts/demo/demo-220x234.png
 sources:
   - https://github.com/dbrosy/rancher-charts/charts/demo
 maintainers:
