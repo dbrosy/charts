@@ -1,7 +1,7 @@
 apiVersion: v1
 appVersion: 0.0.1
 description: Custom Chart Template
-name: custom-template
+name: template
 version: 0.0.1
 keywords:
   - template
