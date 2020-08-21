@@ -21,3 +21,4 @@ version: 0.1.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 appVersion: 1.18.0
+icon: https://raw.githubusercontent.com/dbrosy/rancher-charts/master/charts/nginx/NGINX-product-icon.svg
