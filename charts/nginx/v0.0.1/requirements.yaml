@@ -1,4 +1,0 @@
-dependancies:
-    - name: mongodb
-      repository:
-      version: 5.3.4
