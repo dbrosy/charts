@@ -29,13 +29,13 @@ questions:
     label: NGINX Image Tag
 - variable: service.type
   default: "NodePort"
-  description: "MariaDB K8s Service type"
+  description: "NGINX Service type"
   type: enum
   options:
     - "ClusterIP"
     - "NodePort"
   required: true
-  label: MariaDB Service Type
+  label: NGINX Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
   subquestions:
@@ -46,10 +46,4 @@ questions:
     min: 30000
     max: 32767
     label: Service NodePort number
-  - variable: service.nodePort.slave
-    default: ""
-    description: "NodePort port number(to set explicitly, choose port between 30000-32767)"
-    type: int
-    min: 30000
-    max: 32767
-    label: Service NodePort number
+
