@@ -2,47 +2,6 @@ categories:
   - Server
 questions:
 
-# Config
-  - variable: config.clusterProvider
-    default: infrastructure
-    description: ''
-    type: enum
-    options:
-      - infrastructure
-      - eks
-      - aks
-      - gke
-    required: true
-    label: 'cluster provider'
-    group: Config
-  - variable: config.imagePullPolicy
-    default: IfNotPresent
-    description: ''
-    type: enum
-    options:
-      - IfNotPresent
-      - Always
-    required: true
-    label: 'pull policy'
-    group: Config
-  - variable: config.updateStrategy
-    default: RollingUpdate
-    description: ''
-    type: enum
-    options:
-      - RollingUpdate
-      - Recreate
-    required: true
-    label: 'update strategy'
-    group: Config
-  - variable: config.secret
-    default: pass
-    description: ''
-    type: password
-    required: true
-    label: secret
-    group: Config
-
 # Persistence
   - variable: persistence.enabled
     default: false
