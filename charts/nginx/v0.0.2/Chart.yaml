@@ -1,7 +1,7 @@
 name: nginx
 home: https://github.com/dbrosy/rancher/charts
-icon: https://www.nginx.com/wp-content/uploads/2019/10/NGINX-Logo-White-Endorsement-RGB.svg
-version: 0.0.2
+icon: https://raw.githubusercontent.com/dbrosy/rancher-charts/master/charts/nginx/nginx-626x144.png
+version: 0.2.0
 appVersion: latest
 description: 'test nginx container'
 keywords:
