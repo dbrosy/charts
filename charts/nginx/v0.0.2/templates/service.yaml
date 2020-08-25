@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "nginx.fullname" . }}-nginx
+  name: {{ template "nginx.fullname" . }}
   labels:
-    app: {{ template "nginx.name" . }}-nginx
+    app: {{ template "nginx.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -24,5 +24,5 @@ spec:
       nodePort: {{ .Values.service.nginx.nodePorts.http }}
       {{- end }}
   selector:
-    app: {{ template "nginx.name" . }}-nginx
+    app: {{ template "nginx.name" . }}
     release: {{ .Release.Name }}

@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "nginx.fullname" . }}-nginx
+  name: {{ template "nginx.fullname" . }}
   labels:
-    app: {{ template "nginx.name" . }}-nginx
+    app: {{ template "nginx.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -14,18 +14,18 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: {{ template "nginx.name" . }}-nginx
+      app: {{ template "nginx.name" . }}
       release: {{ .Release.Name }}
   strategy:
     type: {{ .Values.config.updateStrategy }}
   template:
     metadata:
       labels:
-        app: {{ template "nginx.name" . }}-nginx
+        app: {{ template "nginx.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
-        - name: {{ template "nginx.fullname" . }}-nginx
+        - name: {{ template "nginx.fullname" . }}
           image: {{ .Values.images.nginx.repository }}:{{ .Values.images.nginx.tag }}
           imagePullPolicy: {{ .Values.config.imagePullPolicy }}
           ports:
@@ -61,9 +61,9 @@ spec:
 apiVersion: stash.appscode.com/v1beta1
 kind: RestoreSession
 metadata:
-  name: {{ template "nginx.fullname" . }}-nginx
+  name: {{ template "nginx.fullname" . }}
   labels:
-    app: {{ template "nginx.name" . }}-nginx
+    app: {{ template "nginx.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -80,7 +80,7 @@ spec:
     ref:
       apiVersion: apps/v1
       kind: Deployment
-      name: {{ template "nginx.fullname" . }}-nginx
+      name: {{ template "nginx.fullname" . }}
     volumeMounts:
       - name: data
         mountPath: /_data
