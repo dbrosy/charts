@@ -1,0 +1,21 @@
+apiVersion: v2
+name: wordpress
+version: 0.0.1
+appVersion: 5.5.1
+description: Wordpress
+keywords:
+  - wordpress
+  - cms
+  - blog
+  - http
+  - web
+  - application
+  - php
+home: http://www.wordpress.com/
+icon: file://../wordpress-stack-220x234.png
+sources:
+  - https://github.com/dbrosy/rancher-charts/charts/wordpress
+maintainers:
+  - name: dbrosy
+    email: dbrosy@hotmail.com
+engine: gotpl
