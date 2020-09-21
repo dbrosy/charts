@@ -7,5 +7,5 @@ appVersion: 0.0.1
 keywords:
   - tutorial
   - learning
-icon: file://../tutorial-icon.png
+icon: file://../tutorial-icon.svg
 engine: gotpl
