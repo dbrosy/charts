@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-configmap
-  namespace: {{ .Release.Namespace }}
+#  name: {{ .Release.Name }}-configmap
+   name: {{ include "tutorial.fullname" . }}
+#  namespace: {{ .Release.Namespace }}
 data:
   myvalue: "Hello World"
