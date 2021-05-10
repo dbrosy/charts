@@ -1,12 +1,15 @@
-    categories:
-    - Node-Red
-    - NodeRed
-    questions:
-    - variable: persistence.enabled
-    default: "false"
-    description: "Enable persistent volume for WordPress"
-    type: boolean
-    required: true
-    label: WordPress Persistent Volume Enabled
+labels:
+  io.cattle.role: project # options are cluster/project
+categories:
+- Node-Red
+- NodeRed
+questions:
+- variable: defaultImage
+  default: "true"
+  description: "Use default Docker image"
+  label: Use Default Image
+  type: boolean
+  show_subquestion_if: false
+  group: "Container Images"
 
 
