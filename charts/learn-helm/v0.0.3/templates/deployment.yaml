@@ -8,7 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx  
+      app: nginx
   template:
     metadata:
       labels:
@@ -32,10 +32,10 @@ spec:
               port: http
           resources:
           volumeMounts:
-          - mountPath: /etc/nginx/templates
-            name: learn-helm-templates
+            - mountPath: /etc/nginx/templates
+              name: learn-helm-templates
       volumes:
-      - hostPath:
-          path: /rancher/learn-helm/templates
-          type: ""
-        name: learn-helm-templates
+        - hostPath:
+            path: /rancher/learn-helm/templates
+            type: DirectoryOrCreate
+          name: learn-helm-templates
