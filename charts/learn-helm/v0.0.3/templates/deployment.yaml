@@ -33,9 +33,9 @@ spec:
           resources:
           volumeMounts:
           - mountPath: /etc/nginx/templates
-            name: learn=helm-templates
+            name: learn-helm-templates
       volumes:
       - hostPath:
           path: /rancher/learn-helm/templates
           type: ""
-        name: learn=helm-templates
+        name: learn-helm-templates
