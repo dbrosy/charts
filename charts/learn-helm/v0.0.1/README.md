@@ -1,5 +1,5 @@
 # Learn-Helm
 
-Learning to create helm charts
+Learning to create helm charts - version 5
 
-Base configuration - no Values.yaml
+- Create Deployment

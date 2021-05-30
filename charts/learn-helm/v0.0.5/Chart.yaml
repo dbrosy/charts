@@ -1,0 +1,7 @@
+apiVersion: v2
+name: learn-helm
+description: A Helm chart for Kubernetes
+type: application
+version: 0.0.5
+appVersion: "1.19.10"
+icon: file://../helm.svg

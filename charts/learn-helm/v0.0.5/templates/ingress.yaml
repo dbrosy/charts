@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+  name: learn-helm
+  namespace: learn-helm
+spec:
+  rules:
+  - host: learn-helm.lab.brosy.dev
+    http:
+      paths:
+      - backend:
+          service:
+            name: learn-helm
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - learn-helm.lab.brosy.dev
+    secretName: learn-helm-lab-brosy-dev-crt
+
