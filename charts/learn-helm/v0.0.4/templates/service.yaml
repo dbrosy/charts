@@ -9,4 +9,6 @@ spec:
     protocol: TCP
     targetPort: 80
   sessionAffinity: None
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-learn-helm-learn-helm  
   type: ClusterIP
