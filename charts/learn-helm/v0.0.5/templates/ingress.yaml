@@ -4,22 +4,22 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: "true"
-  name: learn-helm
-  namespace: learn-helm
+  name: {{ include "learn-helm.fullname" . }}
+  namespace: {{ .Release.Namespace }}
 spec:
   rules:
-  - host: learn-helm.lab.brosy.dev
+  - host: {{ include "learn-helm.fullname" . }}.lab.brosy.dev
     http:
       paths:
       - backend:
           service:
-            name: learn-helm
+            name: {{ include "learn-helm.fullname" . }}
             port:
               number: 80
         path: /
         pathType: Prefix
   tls:
   - hosts:
-    - learn-helm.lab.brosy.dev
-    secretName: learn-helm-lab-brosy-dev-crt
+    - {{ include "learn-helm.fullname" . }}.lab.brosy.dev
+    secretName: {{ include "learn-helm.fullname" . }}-lab-brosy-dev-crt
 
