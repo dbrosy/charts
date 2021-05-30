@@ -1,3 +1,5 @@
+    labels:
+      io.cattle.role: project # options are cluster/project
     categories:
     - Routing
     - ReverseProxy
