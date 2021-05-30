@@ -4,6 +4,8 @@
 
 
 ## Notable changes
+### v0.0.4
+**Warning:** Added ingress and services.
 ### v0.0.3
 **Warning:** Added bind-mount storage (templates folder).
 ### v0.0.2
