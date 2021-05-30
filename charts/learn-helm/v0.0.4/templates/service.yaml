@@ -11,5 +11,6 @@ spec:
     targetPort: 80
   sessionAffinity: None
   selector:
-    app: nginx 
+    #app: nginx
+    workloadID_learn-helm: "true" 
   type: ClusterIP
