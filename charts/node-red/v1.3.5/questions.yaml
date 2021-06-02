@@ -6,7 +6,7 @@ categories:
 questions:
   - variable: defaultImage
     default: "true"
-    description: "Use default Docker image"
+    description: "Use default dDocker image"
     label: Use Default Image
     type: boolean
     show_subquestion_if: false
