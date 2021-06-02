@@ -5,3 +5,8 @@ type: application
 version: 0.0.6
 appVersion: "1.20.0"
 icon: file://../helm.svg
+sources:
+  - https://github.com/dbrosy/rancher-charts/charts/learn-helm
+maintainers:
+  - name: dbrosy
+    email: dbrosy@hotmail.com
