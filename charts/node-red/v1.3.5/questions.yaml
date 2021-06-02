@@ -11,4 +11,9 @@ questions:
     type: boolean
     show_subquestion_if: false
     group: "Container Images"
-  - group: "Storage"
+  - variable: enableStorage
+    default: "false"
+    description: "Enable local Storage"
+    label: Enable local Storage
+    type: boolean
+    group: "Storage"
