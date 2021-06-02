@@ -1,15 +1,14 @@
 labels:
   io.cattle.role: project # options are cluster/project
 categories:
-- Node-Red
-- NodeRed
+  - Node-Red
+  - NodeRed
 questions:
-- variable: defaultImage
-  default: "true"
-  description: "Use default Docker image"
-  label: Use Default Image
-  type: boolean
-  show_subquestion_if: false
-  group: "Container Images"
-
-
+  - variable: defaultImage
+    default: "true"
+    description: "Use default Docker image"
+    label: Use Default Image
+    type: boolean
+    show_subquestion_if: false
+    group: "Container Images"
+  - group: "Storage"
