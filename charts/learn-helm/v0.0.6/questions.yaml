@@ -21,3 +21,11 @@ questions:
         description: "If undefined or null, uses the default StorageClass. Default to null"
         type: storageclass
         label: Default StorageClass for WordPress
+  - variable: storage.enabled
+    default: "false"
+    description: "Enable persistent volume for Storage"
+    type: boolean
+    required: true
+    label: Storage Persistent Volume Enabled
+    show_subquestion_if: true
+    group: "Storage"
