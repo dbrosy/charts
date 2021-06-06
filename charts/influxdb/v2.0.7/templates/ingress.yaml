@@ -19,7 +19,7 @@ spec:
   tls:
     - hosts:
       - {{ .Values.ingress.hostname }}
-      secretName: {{ include "influxdb.fullname" . }}
+      secretName: {{ .Values.ingress.secretName }}
 {{- end }}
   rules:
   - host: {{ .Values.ingress.hostname }}
