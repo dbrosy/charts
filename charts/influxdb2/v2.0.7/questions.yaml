@@ -1,11 +1,11 @@
 categories:
-    - Database
-    - Timeseries
-    questions:
-    - variable: ingress.enabled
-    default: "false"
-    description: "Enable Ingress for Influxdb 2.0 database"
-    type: boolean
-    required: "false"
-    label: InfluxDB Ingress Enabled
-    group: "Ingress"
+- Database
+- Timeseries
+questions:
+- variable: ingress.enabled
+default: "false"
+description: "Enable Ingress for Influxdb 2.0 database"
+type: boolean
+required: "false"
+label: InfluxDB Ingress Enabled
+group: "Ingress"
