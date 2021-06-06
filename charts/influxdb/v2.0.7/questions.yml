@@ -19,6 +19,14 @@ questions:
     type: string
     label: "Ingress Hostname"
     show_if: "ingress.enabled=true"
+- variable: ingress.tls
+  default: "false"
+  description: "Enable TLS for Influxdb 2.0 database Ingress"
+  type: boolean
+  required: "false"
+  label: Ingress TLS Enabled
+  group: "Ingress"
+  show_if: "ingress.enabled=true"  
 - variable: defaultImage
   default: "true"
   description: "Use default Docker image"
