@@ -12,3 +12,10 @@ questions:
   required: "false"
   label: InfluxDB Ingress Enabled
   group: "Ingress"
+  subquestions:
+  - variable: ingress.hostname
+    default: ""
+    description: "Ingress Hostname"
+    type: string
+    label: "Ingress Hostname"
+
