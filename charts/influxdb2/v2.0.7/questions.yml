@@ -1,12 +1,14 @@
+labels:
+  io.cattle.role: project # options are cluster/project
 categories:
 - Database
-- Timeseries
+- InfluxDB
 namespace: kiln-dev
 questions:
-  - variable: ingress.enabled
-    default: "false"
-    description: "Enable Ingress for Influxdb 2.0 database"
-    type: boolean
-    required: "false"
-    label: InfluxDB Ingress Enabled
-    group: "Ingress"
+- variable: ingress.enabled
+  default: "false"
+  description: "Enable Ingress for Influxdb 2.0 database"
+  type: boolean
+  required: "false"
+  label: InfluxDB Ingress Enabled
+  group: "Ingress"
