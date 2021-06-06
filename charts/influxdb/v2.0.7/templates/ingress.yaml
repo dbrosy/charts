@@ -27,7 +27,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-          name: {{ include "influxdb.fullname" . }}
-          port: 
-            number: 80
+            name: {{ include "influxdb.fullname" . }}
+            port: 
+              number: 80
 {{- end -}}
