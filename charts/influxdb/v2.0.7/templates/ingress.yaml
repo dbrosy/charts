@@ -18,7 +18,7 @@ spec:
 {{- if .Values.ingress.tls }}
   tls:
     - hosts:
-      - {{ .Values.ingress.hostname | quote }}
+      - {{ .Values.ingress.hostname }}
       secretName: {{ include "influxdb.fullname" . }}
 {{- end }}
   rules:
