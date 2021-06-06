@@ -34,7 +34,7 @@ questions:
     group: "Ingress"
     show_if: "ingress.enabled=true"
     subquestions:
-      - variable: ingress.secretname
+      - variable: ingress.secretName
         default: ""
         description: "Ingress secretName"
         type: string
