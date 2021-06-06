@@ -1,54 +1,52 @@
 labels:
   io.cattle.role: project # options are cluster/project
 categories:
-- Database
-- InfluxDB
+  - Database
+  - InfluxDB
 namespace: kiln-dev
 questions:
-- variable: ingress.enabled
-  default: "false"
-  description: "Enable Ingress for Influxdb 2.0 database"
-  type: boolean
-  required: "false"
-  label: InfluxDB Ingress Enabled
-  group: "Ingress"
-  subquestions:
-  - variable: ingress.hostname
-    default: ""
-    description: "Ingress Hostname"
-    type: string
-    label: "Ingress Hostname"
+  - variable: ingress.enabled
+    default: "false"
+    description: "Enable Ingress for Influxdb 2.0 database"
+    type: boolean
+    required: "false"
+    label: Enable Ingress
+    group: "Ingress"
+    subquestions:
+      - variable: ingress.hostname
+        default: ""
+        description: "Ingress Hostname"
+        type: string
+        label: "Ingress Hostname"
+        show_if: "ingress.enabled=true"
+  - variable: ingress.tls
+    default: "false"
+    description: "Enable TLS for Influxdb 2.0 database Ingress"
+    type: boolean
+    required: "false"
+    label: Enable TLS
+    group: "Ingress"
     show_if: "ingress.enabled=true"
-- variable: ingress.tls
-  default: "false"
-  description: "Enable TLS for Influxdb 2.0 database Ingress"
-  type: boolean
-  required: "false"
-  label: Ingress TLS Enabled
-  group: "Ingress"
-  show_if: "ingress.enabled=true"  
-- variable: defaultImage
-  default: "true"
-  description: "Use default Docker image"
-  label: Use Default Image
-  type: boolean
-  show_subquestion_if: false
-  group: "Container Images"
-  subquestions:
-  - variable: global.imageRegistry
-    default: ""
-    description: "Global Docker image registry"
-    type: string
-    label: Global Docker Image Registry
-  - variable: image.repository
-    default: "influxdb"
-    description: "Docker image name"
-    type: string
-    label: InfluxDB Image Name
-  - variable: image.tag
-    default: "12.0.7-alpine"
-    description: "Docker image tag"
-    type: string
-    label: InfluxDB Image Tag
-
-
+  - variable: defaultImage
+    default: "true"
+    description: "Use default Docker image"
+    label: Use Default Image
+    type: boolean
+    show_subquestion_if: false
+    group: "Container Images"
+    subquestions:
+      - variable: global.imageRegistry
+        default: ""
+        description: "Global Docker image registry"
+        type: string
+        label: Global Docker Image Registry
+      - variable: image.repository
+        default: "influxdb"
+        description: "Docker image name"
+        type: string
+        label: InfluxDB Image Name
+      - variable: image.tag
+        default: "12.0.7-alpine"
+        description: "Docker image tag"
+        type: string
+        label: InfluxDB Image Tag
