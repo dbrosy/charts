@@ -25,6 +25,7 @@ spec:
       paths:
       - path: {{ .Values.ingress.path }}
         backend:
-          serviceName: {{ include "influxdb.fullname" . }}
-          servicePort: {{ .Values.service.portName }}
+          service:
+          name: {{ include "influxdb.fullname" . }}
+          port: {{ .Values.service.portName }}
 {{- end -}}
