@@ -7,7 +7,7 @@ namespace: kiln-dev
 questions:
   - variable: ingress.enabled
     default: "false"
-    description: "Enable Ingress for Influxdb 2.0 database"
+    description: "Enable Ingress"
     type: boolean
     required: "false"
     label: Enable Ingress
@@ -21,12 +21,25 @@ questions:
         show_if: "ingress.enabled=true"
   - variable: ingress.tls
     default: "false"
-    description: "Enable TLS for Influxdb 2.0 database Ingress"
+    description: "Enable TLS on Ingress"
     type: boolean
     required: "false"
     label: Enable TLS
     group: "Ingress"
     show_if: "ingress.enabled=true"
+    subquestions:
+      - variable: ingress.secretname
+        default: ""
+        description: "Ingress secretName"
+        type: string
+        label: "Ingress secretName"
+        show_if: "ingress.tls=true"
+      - variable: ingress.hostname
+        default: ""
+        description: "Ingress Hostname"
+        type: string
+        label: "Ingress Hostname"
+        show_if: "ingress.enabled=true"    
   - variable: defaultImage
     default: "true"
     description: "Use default Docker image"
