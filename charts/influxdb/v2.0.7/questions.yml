@@ -34,12 +34,6 @@ questions:
         type: string
         label: "Ingress secretName"
         show_if: "ingress.tls=true"
-      - variable: ingress.hostname
-        default: ""
-        description: "Ingress Hostname"
-        type: string
-        label: "Ingress Hostname"
-        show_if: "ingress.enabled=true"    
   - variable: defaultImage
     default: "true"
     description: "Use default Docker image"

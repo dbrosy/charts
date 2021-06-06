@@ -93,8 +93,8 @@ ingress:
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   # ingressClassName: nginx
   tls: false
-  secretName: influxdb-foobar.com # only needed if tls above is true
-  hostname: influxdb.foobar.com
+    secretName: influxdb-foobar.com # only needed if tls above is true
+    hostname: influxdb.foobar.com
   annotations: {}
     # kubernetes.io/ingress.class: "nginx"
     # kubernetes.io/tls-acme: "true"
