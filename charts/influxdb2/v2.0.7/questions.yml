@@ -18,4 +18,5 @@ questions:
     description: "Ingress Hostname"
     type: string
     label: "Ingress Hostname"
+    show_if: "ingress.enabled=true"
 
