@@ -30,9 +30,10 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
-        - name: settings
-          configMap:
-            name: settings-configmap
+        - configMap:
+            defaultMode: 420
+            name: {{ template "nodered.fullname" . }}
+          name: settings
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -81,11 +82,11 @@ spec:
               path: {{ .Values.readinessProbePath }}
               port: http
           volumeMounts:
-          - name: data
-            mountPath: {{ .Values.persistence.mountPath }}
-          - name: settings-configmap
-            mountPath: /data/settings.js
-            subPath: settings.js          
+          - mountPath: {{ .Values.persistence.mountPath }}
+            name: data
+          - mountPath: /data/setting.js
+            name: settings
+            subPath: settings.js                     
           resources:
             {{ .Values.resources | toYaml | nindent 12 | trim }}
 
