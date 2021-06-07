@@ -14,7 +14,7 @@ questions:
     group: "Ingress"
     subquestions:
       - variable: domainName
-        default: "lab.foobar.com"
+        default: ""
         description: "Domain Name"
         type: string
         label: "Domain Name"
