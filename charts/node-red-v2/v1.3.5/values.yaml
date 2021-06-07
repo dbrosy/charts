@@ -1,7 +1,7 @@
 image:
   registry: docker.io
-  repository: nodered
-  tag: node-red:1.3.5-12-minimal
+  repository: node-red/nodered
+  tag: 1.3.5-12-minimal
   pullPolicy: IfNotPresent
 
 podAnnotations: {}

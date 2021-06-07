@@ -54,7 +54,7 @@ questions:
         type: string
         label: Global Docker Image Registry
       - variable: image.repository
-        default: "node-red"
+        default: "node-red/nodered"
         description: "Docker image name"
         type: string
         label: Node-Red Image Name
