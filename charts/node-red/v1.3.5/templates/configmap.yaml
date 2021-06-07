@@ -2,13 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ template "nodered.fullname" . }}
-  namespace: {{ template "nodered.namespace" . }}
   labels:
     {{- include "nodered.labels" . | nindent 4 }}
-{{- with .Values.annotations }}
-  annotations:
-{{ toYaml . | indent 4 }}
-{{- end }}
 data:
   settings.js: |-
     /**

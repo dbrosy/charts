@@ -30,6 +30,9 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
+        - name: settings
+          mountPath: /data/settings.js
+          subPath: settings.j
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
