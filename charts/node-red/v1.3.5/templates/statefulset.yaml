@@ -84,7 +84,7 @@ spec:
           volumeMounts:
           - mountPath: {{ .Values.persistence.mountPath }}
             name: data
-          - mountPath: /data/setting.js
+          - mountPath: /data/settings.js
             name: settings
             subPath: settings.js                     
           resources:
