@@ -31,5 +31,5 @@ spec:
           service:
             name: {{ include "nodered.fullname" . }}
             port: 
-              number: 80
+              number: 1880
 {{- end -}}
