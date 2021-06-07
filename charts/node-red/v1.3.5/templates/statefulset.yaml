@@ -30,6 +30,9 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
+        - name: settings
+          configMap:
+            name: settings-configmap
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -80,7 +83,7 @@ spec:
           volumeMounts:
           - name: data
             mountPath: {{ .Values.persistence.mountPath }}
-          - name: settings
+          - name: settings-configmap
             mountPath: /data/settings.js
             subPath: settings.js          
           resources:
