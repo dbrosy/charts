@@ -1,0 +1,39 @@
+replicaCount: 1
+
+image:
+  registry: docker.io
+  repository: strapi/strapi
+  tag: 3.6.3
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+livenessProbePath: /
+readinessProbePath: /
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 50Gi
+  mountPath: /srv/app
+
+service:
+  type: ClusterIP
+  port: 1337
+  targetPort: 1337
+  annotations: {}
+  labels: {}
+  portName: http
+
+ingress:
+  enabled: false
+  domainName: lab.foobar.dev
+  tls: false
+  secretName: strapi-lab-foobar-dev-tls # only needed if tls above is true
+  hostname: strapi.lab.foobar.dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+  path: /

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: strapi
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "3.6.3"
+icon: https://raw.githubusercontent.com/dbrosy/rancher-charts/master/logo.svg
