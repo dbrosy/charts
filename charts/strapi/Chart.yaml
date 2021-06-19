@@ -4,4 +4,4 @@ description: A Helm chart for Kubernetes
 type: application
 version: 0.1.0
 appVersion: "3.6.3"
-icon: https://raw.githubusercontent.com/dbrosy/rancher-charts/master/logo.svg
+icon: https://github.com/dbrosy/rancher-charts/blob/master/charts/strapi/logo.svg
