@@ -18,7 +18,7 @@ spec:
       {{- toYaml .Values.podAnnotations | nindent 8 }}
     spec:
       volumes:
-        - name: data
+        - name: strapi-data
         {{- if .Values.persistence.enabled }}
           {{- if not (empty .Values.persistence.name) }}
           persistentVolumeClaim:
@@ -30,10 +30,6 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
-        - configMap:
-            defaultMode: 420
-            name: {{ template "strapi.fullname" . }}
-          name: settings
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
