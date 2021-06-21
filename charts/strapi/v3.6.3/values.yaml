@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   registry: docker.io
   repository: strapi/strapi
-  tag: 3.6.3
+  tag: alpine
   pullPolicy: IfNotPresent
 
 podAnnotations: {}
