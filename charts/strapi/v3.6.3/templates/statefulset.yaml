@@ -42,11 +42,11 @@ spec:
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbePath }}
-              port: http
+              port: 1337
           readinessProbe:
             httpGet:
               path: {{ .Values.readinessProbePath }}
-              port: http
+              port: 1337
           volumeMounts:
           - mountPath: {{ .Values.persistence.mountPath }}
             name: strapi-data                    
