@@ -31,5 +31,5 @@ spec:
           service:
             name: {{ include "strapi.fullname" . }}
             port: 
-              number: 1880
+              number: 1337
 {{- end -}}
