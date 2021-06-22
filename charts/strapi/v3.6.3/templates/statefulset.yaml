@@ -43,10 +43,20 @@ spec:
             httpGet:
               path: {{ .Values.livenessProbePath }}
               port: 1337
+            initialDelaySeconds: 3
+            periodSeconds: 3
           readinessProbe:
             httpGet:
               path: {{ .Values.readinessProbePath }}
               port: 1337
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          startupProbe:
+            httpGet:
+              path: /
+              port: 1337
+            failureThreshold: 30
+            periodSeconds: 10
           volumeMounts:
           - mountPath: {{ .Values.persistence.mountPath }}
             name: strapi-data                    
