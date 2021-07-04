@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ template "strapi.fullname" . }}
+  labels:
+    {{ include "strapi.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "strapi.selectorLabels" . | nindent 6 }}
+  serviceName: "{{ include "strapi.fullname" . }}"
+  template:
+    metadata:
+      labels:
+      {{- include "strapi.selectorLabels" . | nindent 8 }}
+      annotations:
+      {{- toYaml .Values.podAnnotations | nindent 8 }}
+    spec:
+      volumes:
+        - name: strapi-data
+        {{- if .Values.persistence.enabled }}
+          {{- if not (empty .Values.persistence.name) }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.name }}
+          {{- else }}
+          persistentVolumeClaim:
+            claimName: {{ template "strapi.fullname" . }}
+          {{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: {{ .Values.service.portName }}
+              containerPort: 1337
+              protocol: TCP
+            # Extra environment variables from .Values.env
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbePath }}
+              port: 1337
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbePath }}
+              port: 1337
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          startupProbe:
+            httpGet:
+              path: /
+              port: 1337
+            failureThreshold: 30
+            periodSeconds: 10
+          volumeMounts:
+          - mountPath: {{ .Values.persistence.mountPath }}
+            name: strapi-data                    
+          resources:
+            {{ .Values.resources | toYaml | nindent 12 | trim }}
+
+      {{- if .Values.securityContext.runAsGroup }}
+      securityContext:
+        fsGroup: {{ .Values.securityContext.runAsGroup }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{ toYaml . | nindent 8 | trim }}
+      {{- end }}
+
+      {{- with .Values.affinity }}
+      affinity:
+        {{ toYaml . | nindent 8 | trim }}
+      {{- end }}
+
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{ toYaml . | nindent 8 | trim }}
+      {{- end }}
