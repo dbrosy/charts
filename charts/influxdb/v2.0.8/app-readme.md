@@ -5,5 +5,5 @@
 
 ## Notable changes
 
-### v2.0.7
+### v2.0.8
 **Warning:** Base config.
