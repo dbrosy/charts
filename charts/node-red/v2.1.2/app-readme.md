@@ -1,9 +1,9 @@
-# Influxdata - InfluxDB 2.x
+# Node-Red - Nodered 2.x
 
-[InfluxDB2]Influxdb 2.x
+[Nodered]Nodered 2.x
 
 
 ## Notable changes
 
-### v2.0.7
+### v2.1.2
 **Warning:** Base config.
