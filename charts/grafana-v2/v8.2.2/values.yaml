@@ -1,0 +1,88 @@
+image:
+  registry: docker.io
+  repository: grafana/grafana
+  tag: 8.2.2
+  pullPolicy: IfNotPresent
+
+podAnnotations: {}
+
+nameOverride: ""
+fullnameOverride: ""
+
+livenessProbePath: /
+readinessProbePath: /
+
+# nodeOptions: ""
+extraEnvs: []
+timezone: "Pacific/Auckland"
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+securityContext: {}
+
+## Extra environment variables to configure nodered
+## e.g.
+# env:
+#   - name: FOO
+#     value: BAR
+#   - name: BAZ
+#     valueFrom:
+#       secretKeyRef:
+#         name: my-secret
+#         key: my-key
+env: {}
+
+
+
+
+## Persist data to a persistent volume
+##
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 5Gi
+  mountPath: /data
+
+service:
+  type: ClusterIP
+  port: 1880
+  targetPort: 1880
+  annotations: {}
+  labels: {}
+  portName: service
+
+ingress:
+  enabled: false
+  domainName: lab.foobar.dev
+  tls: false
+  secretName: grafana-lab-foobar-dev-tls # only needed if tls above is true
+  hostname: grafana.lab.foobar.dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+  path: /
+
+## Pod disruption budget configuration
+##
+pdb:
+  ## Specifies whether a Pod disruption budget should be created
+  ##
+  create: true
+  minAvailable: 1
+  # maxUnavailable: 1

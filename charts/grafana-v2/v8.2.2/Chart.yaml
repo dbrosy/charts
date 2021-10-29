@@ -1,0 +1,14 @@
+apiVersion: v2
+appVersion: 8.2.2
+version: 8.2.2
+description: Grafana-v2
+name: grafana-v2
+keywords:
+  - Grafana
+  - grafana
+home: https://grafana.com/
+type: application
+maintainers:
+  - name: dbrosy
+    email: code@brosy.com
+icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
