@@ -3,7 +3,7 @@ labels:
 categories:
   - Grafana
   - grafana
-namespace: kiln-dev
+namespace: testing
 questions:
   - variable: ingress.enabled
     default: "false"

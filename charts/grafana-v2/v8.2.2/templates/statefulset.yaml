@@ -43,14 +43,6 @@ spec:
               containerPort: 1880
               protocol: TCP
           env:
-            - name: FLOWS
-              value: "{{ .Values.flows }}"
-            - name: NODE_RED_ENABLE_SAFE_MODE
-              value: "{{ .Values.safeMode }}"
-            - name: NODE_RED_ENABLE_PROJECTS
-              value: "{{ .Values.enableProjects }}"
-            - name: NODE_OPTIONS
-              value: "{{ .Values.nodeOptions }}"
             - name: TZ
               value: "{{ .Values.timezone }}"
             {{- with .Values.extraEnvs }}
