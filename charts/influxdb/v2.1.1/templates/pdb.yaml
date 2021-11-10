@@ -2,9 +2,9 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ template "grafana.fullname" . }}
+  name: {{ template "influxdb.fullname" . }}
   labels:
-  {{ include "grafana.labels" . | nindent 4 }}
+  {{ include "influxdb.labels" . | nindent 4 }}
 spec:
   {{- if .Values.pdb.minAvailable }}
   minAvailable: {{ .Values.pdb.minAvailable }}
@@ -14,5 +14,5 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-  {{- include "grafana.selectorLabels" . | nindent 6 }}
+  {{- include "influxdb.selectorLabels" . | nindent 6 }}
   {{- end }}

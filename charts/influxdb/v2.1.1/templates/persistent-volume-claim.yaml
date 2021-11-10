@@ -2,9 +2,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: "{{- if not (empty .Values.persistence.name) }}{{ .Values.persistence.name }}{{- else }}{{ template "grafana.fullname" . }}{{- end }}"
+  name: "{{- if not (empty .Values.persistence.name) }}{{ .Values.persistence.name }}{{- else }}{{ template "influxdb.fullname" . }}{{- end }}"
   labels:
-    {{- include "grafana.labels" . | nindent 4 }}
+    {{- include "influxdb.labels" . | nindent 4 }}
   annotations:
     helm.sh/resource-policy: "keep"
 spec:

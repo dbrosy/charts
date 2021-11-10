@@ -1,9 +1,9 @@
 labels:
   io.cattle.role: project # options are cluster/project
 categories:
-  - Grafana
-  - grafana
-namespace: testing
+  - Database
+  - InfluxDB
+namespace: kiln-dev
 questions:
   - variable: ingress.enabled
     default: "false"
@@ -13,8 +13,8 @@ questions:
     label: Enable Ingress
     group: "Ingress"
     subquestions:
-      - variable: ingress.domainName
-        default: ""
+      - variable: domainName
+        default: "foobar.com"
         description: "Domain Name"
         type: string
         label: "Domain Name"
@@ -54,12 +54,12 @@ questions:
         type: string
         label: Global Docker Image Registry
       - variable: image.repository
-        default: "grafana/grafana"
+        default: "influxdb"
         description: "Docker image name"
         type: string
-        label: Grafana Image Name
+        label: InfluxDB Image Name
       - variable: image.tag
-        default: "8.2.2"
+        default: "12.0.7-alpine"
         description: "Docker image tag"
         type: string
-        label: Grafana Image Tag
+        label: InfluxDB Image Tag
