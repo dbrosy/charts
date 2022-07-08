@@ -45,9 +45,10 @@ securityContext: {}
 #       secretKeyRef:
 #         name: my-secret
 #         key: my-key
-env:          
- - name: "SENDGRID_API_KEY"
-   value: ""
+env:
+  strapi:
+    SENDGRID_API_KEY: ""         
+
 
 persistence:
   enabled: true

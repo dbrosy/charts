@@ -40,10 +40,12 @@ spec:
               protocol: TCP
             # Extra environment variables from .Values.env
           env:
-          {{- range $name, $value := .Values.env }}
-            - name: {{ $name }}
-              value: {{ $value }}
-          {{- end }}             
+          {{- range $name, $value := .Values.env.strapi }}
+          {{- if not (empty $value) }}
+                  - name: {{ $name | quote }}
+                    value: {{ $value | quote }}
+          {{- end }}
+          {{- end }}          
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbePath }}
