@@ -1,0 +1,82 @@
+replicaCount: 1
+
+image:
+  registry: docker.io
+  repository: dbrosy/strapi
+  tag: 0.0.3
+  pullPolicy: IfNotPresent
+
+podAnnotations: {}
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+livenessProbePath: /
+readinessProbePath: /
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+securityContext: {}
+
+## Extra environment variables to configure nodered
+## e.g.
+# env:
+#   - name: FOO
+#     value: BAR
+#   - name: BAZ
+#     valueFrom:
+#       secretKeyRef:
+#         name: my-secret
+#         key: my-key
+env: {}
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 50Gi
+  mountPath: /srv/app
+
+service:
+  type: ClusterIP
+  port: 1337
+  targetPort: 1337
+  annotations: {}
+  labels: {}
+  portName: http
+
+ingress:
+  enabled: false
+  domainName: lab.foobar.dev
+  tls: false
+  secretName: strapi-lab-foobar-dev-tls # only needed if tls above is true
+  hostname: strapi.lab.foobar.dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+  path: /
+
+## Pod disruption budget configuration
+##
+pdb:
+  ## Specifies whether a Pod disruption budget should be created
+  ##
+  create: true
+  minAvailable: 1
+  # maxUnavailable: 1
