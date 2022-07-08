@@ -39,6 +39,9 @@ spec:
               containerPort: 1337
               protocol: TCP
             # Extra environment variables from .Values.env
+          env:
+            - name: SENDGRID_API_KEY
+              value: {{ .Values.env.sendgridApiKey }}              
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbePath }}

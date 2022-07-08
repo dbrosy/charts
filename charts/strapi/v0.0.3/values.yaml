@@ -45,7 +45,8 @@ securityContext: {}
 #       secretKeyRef:
 #         name: my-secret
 #         key: my-key
-env: {}
+env:
+  sendgridApiKey: ""
 
 persistence:
   enabled: true

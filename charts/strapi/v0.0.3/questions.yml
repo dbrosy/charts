@@ -64,7 +64,7 @@ questions:
         description: "Docker image tag"
         type: string
         label: Strapi Image Tag
-  - variable: sendgridApiKey
+  - variable: env.sendgridApiKey
     default: ""
     description: "Sendgrid API Key"
     type: string
