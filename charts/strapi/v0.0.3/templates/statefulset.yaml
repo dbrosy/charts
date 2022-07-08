@@ -40,8 +40,10 @@ spec:
               protocol: TCP
             # Extra environment variables from .Values.env
           env:
-            - name: SENDGRID_API_KEY
-              value: {{ .Values.env.sendgridApiKey }}              
+          {{- range $name, $value := .Values.env }}
+            - name: {{ $name }}
+              value: {{ $value }}
+          {{- end }}             
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbePath }}
