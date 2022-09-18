@@ -1,13 +1,12 @@
-{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+{{- if and (.Values.persistence.enabled) (not .Values.persistence.useExisting) }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "node-red.fullname" . }}
+  name: "{{- if not (empty .Values.persistence.name) }}{{ .Values.persistence.name }}{{- else }}{{ template "nodered.fullname" . }}{{- end }}"
   labels:
-    app.kubernetes.io/name: {{ include "node-red.name" . }}
-    helm.sh/chart: {{ include "node-red.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "nodered.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/resource-policy: "keep"
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
@@ -21,4 +20,4 @@ spec:
   storageClassName: "{{ .Values.persistence.storageClass }}"
 {{- end }}
 {{- end }}
-{{- end -}}
+{{- end }}

@@ -1,19 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "node-red.fullname" . }}
-  {{- if .Values.service.annotations }}
+  name: {{ template "nodered.fullname" . }}
+  labels: {{- include "nodered.labels" . | nindent 4 }}
+{{- with .Values.service.annotations }}
   annotations:
-    {{- toYaml .Values.service.annotations | nindent 4 }}
-  {{- end }}
-  labels:
-    app.kubernetes.io/name: {{ include "node-red.name" . }}
-    helm.sh/chart: {{ include "node-red.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{ toYaml . | indent 4 }}
+{{- end }}
 spec:
 {{- if (or (eq .Values.service.type "ClusterIP") (empty .Values.service.type)) }}
   type: ClusterIP
+  {{- if .Values.service.clusterIP }}
+  clusterIP: {{ .Values.service.clusterIP }}
+  {{end}}
 {{- else if eq .Values.service.type "LoadBalancer" }}
   type: {{ .Values.service.type }}
   {{- if .Values.service.loadBalancerIP }}
@@ -26,17 +25,15 @@ spec:
 {{- else }}
   type: {{ .Values.service.type }}
 {{- end }}
-  {{- if .Values.service.externalTrafficPolicy }}
-  externalTrafficPolicy: {{ .Values.service.externalTrafficPolicy }}
-  {{- end }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - name: {{ .Values.service.portName }}
+      port: {{ .Values.service.port }}
       protocol: TCP
-      name: http
+      targetPort: {{ .Values.service.targetPort }}
 {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{.Values.service.nodePort}}
 {{ end }}
-  selector:
-    app.kubernetes.io/name: {{ include "node-red.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+  {{- if .Values.extraExposePorts }}
+  {{- tpl (toYaml .Values.extraExposePorts) . | indent 4 }}
+  {{- end }}
+  selector: {{- include "nodered.selectorLabels" . | nindent 4 }}
