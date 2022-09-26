@@ -75,31 +75,26 @@ questions:
     subquestions:
       - variable: email.provider
         default: "sendgrid"
-        description: "Email Provider"
         type: string
         label: "Email Provider"
         show_if: "email.enabled=true"
       - variable: email.sendgridApiKey
         default: ""
-        description: "Sendgrid API Key"
         type: string
         label: "Sendgrid API Key"
         show_if: "email.enabled=true"
       - variable: email.sendgridDefaultFrom
         default: ""
-        description: "Sendgrid Email From"
         type: string
         label: "Sendgrid From"
         show_if: "email.enabled=true"
       - variable: email.sendgridDefaultReplyTo
         default: ""
-        description: "Sendgrid Email ReplyTo"
         type: string
         label: "Sendgrid ReplyTo"
         show_if: "email.enabled=true"
       - variable: email.sendgridTestAddress
         default: ""
-        description: "Sendgrid Test Address"
         type: string
         label: "Sendgrid Test Address"
         show_if: "email.enabled=true"
