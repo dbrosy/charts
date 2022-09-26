@@ -59,7 +59,7 @@ persistence:
   enabled: false
   accessMode: ReadWriteOnce
   size: 50Gi
-  mountPath: /opt/app
+  mountPath: /srv/app
 
 service:
   type: ClusterIP

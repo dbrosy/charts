@@ -64,7 +64,6 @@ questions:
         description: "Docker image tag"
         type: string
         label: Strapi Image Tag
-
   - variable: strapi.email.enabled
     default: "true"
     description: "Enable Email"
@@ -98,3 +97,26 @@ questions:
         type: string
         label: "Sendgrid Test Address"
         show_if: "strapi.email.enabled=true"
+  - variable: persistence.enabled
+    default: "false"
+    description: "Enable Persistence"
+    type: boolean
+    required: "false"
+    label: Enable Persistence
+    group: "Storage"
+    subquestions:
+      - variable: persistence.accessMode
+        default: "ReadWriteOnce"
+        type: string
+        label: "Access Mode"
+        show_if: "persistence.enabled=true"
+      - variable: persistence.size
+        default: "50Gi"
+        type: string
+        label: "Size (Gi)"
+        show_if: "persistence.enabled=true"
+      - variable: persistence.mountPath
+        default: "/srv/app"
+        type: string
+        label: "Mount Path"
+        show_if: "persistence.enabled=true"
