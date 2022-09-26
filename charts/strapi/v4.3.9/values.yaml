@@ -4,7 +4,7 @@ image:
   registry: docker.io
   repository: dbrosy/strapi
   tag: 4.3.9
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 podAnnotations: {}
 
