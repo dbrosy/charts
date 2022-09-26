@@ -47,8 +47,9 @@ securityContext: {}
 #         key: my-key
 env: {}
 
-strapiConfig:
+strapi:
   email:
+    enabled: true
     sendgridApiKey: ""
     sendgridDefaultFrom: ""
     sendgridDefaultReplyTo: ""

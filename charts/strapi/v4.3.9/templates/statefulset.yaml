@@ -66,13 +66,13 @@ spec:
             # Automated setup will not run if an existing boltdb file is found at the configured path.
             # This behavior allows for the InfluxDB container to reboot post-setup without encountering "DB is already set up" errors.
             - name: STRAPI_EMAIL_SENDGRID_API_KEY
-              value: {{ .Values.strapiConfig.email.sendgridApiKey }}
+              value: {{ .Values.strapi.email.sendgridApiKey }}
             - name: STRAPI_EMAIL_SENDGRID_DEFAULT_FROM
-              value: {{ .Values.strapiConfig.email.sendgridDefaultFrom }}
+              value: {{ .Values.strapi.email.sendgridDefaultFrom }}
             - name: STRAPI_EMAIL_SENDGRID_DEFAULT_REPLYTO
-              value: {{ .Values.strapiConfig.email.sendgridDefaultReplyTo }}
+              value: {{ .Values.strapi.email.sendgridDefaultReplyTo }}
             - name: STRAPI_EMAIL_SENDGRID_DEFAULT_TEST_ADDRESS
-              value: {{ .Values.strapiConfig.email.sendgridTestAddress }}                            
+              value: {{ .Values.strapi.email.sendgridTestAddress }}                            
       {{- if .Values.securityContext.runAsGroup }}
       securityContext:
         fsGroup: {{ .Values.securityContext.runAsGroup }}

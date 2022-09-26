@@ -65,7 +65,7 @@ questions:
         type: string
         label: Strapi Image Tag
 
-  - variable: email.enabled
+  - variable: strapi.email.enabled
     default: "true"
     description: "Enable Email"
     type: boolean
@@ -73,28 +73,28 @@ questions:
     label: Enable Email
     group: "Email"
     subquestions:
-      - variable: email.provider
+      - variable: strapi.email.provider
         default: "sendgrid"
         type: string
         label: "Email Provider"
-        show_if: "email.enabled=true"
-      - variable: email.sendgridApiKey
+        show_if: "strapi.email.enabled=true"
+      - variable: strapi.email.sendgridApiKey
         default: ""
         type: string
         label: "Sendgrid API Key"
-        show_if: "email.enabled=true"
-      - variable: email.sendgridDefaultFrom
+        show_if: "strapi.email.enabled=true"
+      - variable: strapi.email.sendgridDefaultFrom
         default: ""
         type: string
         label: "Sendgrid From"
-        show_if: "email.enabled=true"
-      - variable: email.sendgridDefaultReplyTo
+        show_if: "strapi.email.enabled=true"
+      - variable: strapi.email.sendgridDefaultReplyTo
         default: ""
         type: string
         label: "Sendgrid ReplyTo"
-        show_if: "email.enabled=true"
-      - variable: email.sendgridTestAddress
+        show_if: "strapi.email.enabled=true"
+      - variable: strapi.email.sendgridTestAddress
         default: ""
         type: string
         label: "Sendgrid Test Address"
-        show_if: "email.enabled=true"
+        show_if: "strapi.email.enabled=true"
