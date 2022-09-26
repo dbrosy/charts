@@ -107,8 +107,13 @@ questions:
     subquestions:
       - variable: persistence.accessMode
         default: "ReadWriteOnce"
-        type: string
+        type: enum
         label: "Access Mode"
+        options:
+          - "ReadWriteOnce"
+          - "ReadOnlyMany"
+          - "ReadWriteMany"
+          - "ReadWriteOncePod"
         show_if: "persistence.enabled=true"
       - variable: persistence.size
         default: "50Gi"
