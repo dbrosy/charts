@@ -71,7 +71,7 @@ spec:
               value: {{ .Values.strapi.email.sendgridDefaultFrom }}
             - name: STRAPI_EMAIL_SENDGRID_DEFAULT_REPLYTO
               value: {{ .Values.strapi.email.sendgridDefaultReplyTo }}
-            - name: STRAPI_EMAIL_SENDGRID_DEFAULT_TEST_ADDRESS
+            - name: STRAPI_EMAIL_SENDGRID_TEST_ADDRESS
               value: {{ .Values.strapi.email.sendgridTestAddress }}                            
       {{- if .Values.securityContext.runAsGroup }}
       securityContext:
